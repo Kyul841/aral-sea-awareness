@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBY2KX9D8K"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MBY2KX9D8K');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아랄해와 목화: 당신의 옷이 만든 환경 재앙</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .calculator {
+            text-align: center;
+        }
+
+        .calculator h2 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin: 30px 0;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 1.3em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .input-group input {
+            width: 200px;
+            padding: 15px;
+            font-size: 1.5em;
+            border: 3px solid #667eea;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 1.3em;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .result {
+            display: none;
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .result.show {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .water-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .stat-card .number {
+            font-size: 2.5em;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-card .label {
+            font-size: 1.1em;
+        }
+
+        .satellite-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+        }
+
+        .satellite-section p {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .checklist {
+            margin-top: 30px;
+        }
+
+        .checklist h2 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .checklist-item {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+
+        .checklist-item h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .checklist-item p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .warning-box h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .warning-box p {
+            color: #856404;
+        }
+
+        .alternative-materials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .material-card {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 30px;
+            font-size: 1.1em;
+        }
+
+        .aral-image {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>아랄해와 목화</h1>
+            <p class="subtitle">당신의 옷이 만든 환경 재앙</p>
+            <p>소비자의 선택이 바꿀 수 있는 미래</p>
+        </header>
+
+        <div class="section calculator">
+            <h2>올해 당신이 산 면 옷은?</h2>
+            <div class="input-group">
+                <label for="clothCount">올해 구매한 면 옷 개수를 입력하세요</label>
+                <input type="number" id="clothCount" min="0" placeholder="예: 10">
+            </div>
+            <button class="btn" onclick="calculateWater()">계산하기</button>
+
+            <div id="result" class="result">
+                <h3>충격적인 결과</h3>
+                <p style="font-size: 1.4em; margin-bottom: 20px;">
+                    당신이 올해 산 티셔츠 <span id="inputCount" style="font-weight: bold;"></span>벌 = 물 <span id="totalWater" style="font-weight: bold; font-size: 1.3em;"></span>리터
+                </p>
+
+                <div class="water-stats">
+                    <div class="stat-card">
+                        <span class="number" id="bathtubs"></span>
+                        <span class="label">욕조</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="number" id="bottles"></span>
+                        <span class="label">2L 생수병</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="number" id="years"></span>
+                        <span class="label">한 사람이<br>마실 물의 양</span>
+                    </div>
+                </div>
+
+                <div class="satellite-section">
+                    <p style="font-size: 1.5em; font-weight: bold;">이 물은 어디서 왔을까요?</p>
+                    <p>목화 재배를 위해 무분별하게 사용된 물은<br>세계 4위였던 아랄해를 사막으로 만들었습니다.</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Aral_Sea_1989-2014.jpg" alt="아랄해 위성사진 변화" class="aral-image">
+                    <p style="margin-top: 20px; font-size: 1.1em;">1989년과 2014년의 아랄해 비교</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section checklist">
+            <h2>진짜 친환경 목화 구별하는 법</h2>
+            
+            <div class="checklist-item">
+                <h3>✓ 신뢰할 수 있는 인증 마크 확인</h3>
+                <p><strong>GOTS (Global Organic Textile Standard):</strong> 유기농 섬유 국제 인증으로, 원료부터 완제품까지 전 과정을 검증합니다.</p>
+                <p><strong>OEKO-TEX Standard 100:</strong> 유해 물질 검사를 통과한 섬유 제품에 부여되는 인증입니다.</p>
+                <p><strong>Fair Trade Certified Cotton:</strong> 공정무역 인증으로, 농부들의 권리와 환경을 보호합니다.</p>
+            </div>
+
+            <div class="checklist-item">
+                <h3>✓ 브랜드의 투명성 확인</h3>
+                <p>브랜드 공식 웹사이트에서 <strong>공급망 정보</strong>가 공개되어 있는지 확인하세요.</p>
+                <p><strong>목화 원산지 국가</strong>가 명시되어 있는지 살펴보세요.</p>
+                <p>구체적인 정보 없이 "친환경", "에코" 같은 키워드만 나열하는 경우 의심해보세요.</p>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠ 그린워싱 주의!</h3>
+                <p>자체 제작한 인증 마크를 사용하거나, 구체적인 근거 없이 친환경을 주장하는 브랜드를 조심하세요. 진짜 인증은 제3자 기관이 검증합니다.</p>
+            </div>
+
+            <div class="checklist-item">
+                <h3>✓ 대체 소재 고려하기</h3>
+                <p>목화 외에도 환경 영향이 적은 다양한 소재가 있습니다:</p>
+                <div class="alternative-materials">
+                    <div class="material-card">유기농 목화</div>
+                    <div class="material-card">재생 폴리에스터</div>
+                    <div class="material-card">텐셀</div>
+                    <div class="material-card">리넨</div>
+                    <div class="material-card">헴프</div>
+                    <div class="material-card">대나무 섬유</div>
+                </div>
+            </div>
+
+            <div class="checklist-item">
+                <h3>✓ 질문하고 요구하기</h3>
+                <p>브랜드에 직접 목화 원산지와 생산 과정을 물어보세요.</p>
+                <p>소비자가 투명성을 요구하기 시작하면 브랜드도 변할 수밖에 없습니다.</p>
+                <p>진짜 친환경 브랜드를 선택하는 것이 가장 강력한 메시지입니다.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>작은 인식의 변화가 큰 변화를 만듭니다.</p>
+            <p style="margin-top: 10px;">다음에 옷을 살 때, "이 목화는 어디서 왔을까?" 생각해보세요.</p>
+        </footer>
+    </div>
+
+    <script>
+        function calculateWater() {
+            const clothCount = document.getElementById('clothCount').value;
+            
+            if (!clothCount || clothCount <= 0) {
+                alert('옷의 개수를 입력해주세요!');
+                return;
+            }
+
+            // 계산 이벤트 추적
+            gtag('event', 'calculate_water', {
+                'event_category': 'engagement',
+                'event_label': 'water_calculation',
+                'value': clothCount
+            });
+
+            // 티셔츠 1벌 = 2700리터
+            const waterPerShirt = 2700;
+            const totalWater = clothCount * waterPerShirt;
+            
+            // 욕조 1개 = 180리터
+            const bathtubs = Math.round(totalWater / 180);
+            
+            // 2리터 생수병
+            const bottles = Math.round(totalWater / 2);
+            
+            // 한 사람이 하루 3리터씩 마신다고 가정
+            const years = Math.round(totalWater / (3 * 365));
+
+            // 결과 표시
+            document.getElementById('inputCount').textContent = clothCount;
+            document.getElementById('totalWater').textContent = totalWater.toLocaleString();
+            document.getElementById('bathtubs').textContent = bathtubs.toLocaleString();
+            document.getElementById('bottles').textContent = bottles.toLocaleString();
+            document.getElementById('years').textContent = years + '년';
+
+            // 결과 섹션 보이기
+            document.getElementById('result').classList.add('show');
+            
+            // 결과로 스크롤
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Enter 키로도 계산 가능
+        document.getElementById('clothCount').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                calculateWater();
+            }
+        });
+    </script>
+</body>
+</html>
